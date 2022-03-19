@@ -1,0 +1,9 @@
+.Toolbar {
+  background-color: white;
+  color: #4ec6c7;
+  min-height: 100px;
+}
+
+.Menu-Item {
+  font-size: 20px;
+}
