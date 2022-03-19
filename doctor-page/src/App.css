@@ -19,8 +19,32 @@
   box-shadow: 10px 10px 10px lightgray;
 }
 
+.header-continaer {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  background-color: #4ec6c7 !important;
+  height: 60px !important;
+  width: 100%;
+}
+
+.Header {
+  font-size: 26px !important;
+  font-weight: bold !important;
+  text-align: left;
+  padding: 20px;
+  color: white;
+}
+
 .Button {
-  background-color: #4ec6c7;
+  background-color: #4ec6c7 !important;
+  font-size: 18px !important;
+  margin: 40px !important;
+  padding: 8px;
+  border-radius: 10px !important;
+  text-transform: none !important;
+  min-width: 250px !important;
+  max-width: 400px;
 }
 
 .Next-Patient {
@@ -33,33 +57,9 @@
   font-weight: 550 !important;
 }
 
-.Hour {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  color: white;
-  font-size: 20px !important;
-  font-weight: 550 !important;
-}
-
-.Patient {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  padding-left: 20px;
-  font-size: 20px !important;
-  font-weight: 550 !important;
-}
-
 .Patient-Name {
   font-size: 22px !important;
   text-align: center;
-}
-
-.Header {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 40px;
 }
 
 .progress {

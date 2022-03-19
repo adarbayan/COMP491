@@ -81,6 +81,15 @@ const StyledIconButton = styled(IconButton)((theme) => ({
   "&:hover": { backgroundColor: "transparent" },
 }));
 
+const HeaderContainer = styled(Container)((theme) => ({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  backgroundColor: "#4EC6C7",
+  color: "white",
+  height: "80px",
+}));
+
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
@@ -278,7 +287,6 @@ export default function PrimarySearchAppBar() {
           container
           style={{
             display: "flex",
-            height: "540px",
           }}
         >
           <Grid container item xs={11.8} sm={5.8}>
@@ -287,31 +295,10 @@ export default function PrimarySearchAppBar() {
               className="Next-Patient"
               alignItems="center"
               direction="column"
-              style={{
-                margin: "30px",
-              }}
             >
-              <Container
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  backgroundColor: "#4EC6C7",
-                  color: "white",
-                  height: "80px",
-                }}
-              >
-                <Typography
-                  style={{
-                    fontSize: "26px",
-                    fontWeight: "bold",
-                    textAlign: "left",
-                    padding: "30px",
-                  }}
-                >
-                  Sıradaki Hasta
-                </Typography>
-              </Container>
+              <HeaderContainer>
+                <Typography className="Header">Sıradaki Hasta</Typography>
+              </HeaderContainer>
               <Grid container direction="row" height="300px">
                 <Grid
                   container
@@ -319,7 +306,7 @@ export default function PrimarySearchAppBar() {
                   sm={8}
                   direction="column"
                   style={{
-                    padding: "40px",
+                    padding: "30px",
                   }}
                 >
                   <Typography className="Text">08:30 - 1 Nisan 2022</Typography>
@@ -360,57 +347,22 @@ export default function PrimarySearchAppBar() {
                   </div>
                 </Grid>
               </Grid>
-              <Button
-                className="Button"
-                style={{
-                  borderRadius: 10,
-                  backgroundColor: "#4EC6C7",
-                  padding: "8px",
-                  fontSize: "18px",
-                  textTransform: "none",
-                  minWidth: "250px",
-                  maxWidth: "400px",
-                  alignSelf: "center",
-                  margin: "40px",
-                }}
-                variant="contained"
-              >
+              <Button className="Button" variant="contained">
                 Seansı Başlat
               </Button>
             </Grid>
           </Grid>
-          <Grid xs={0.0} sm={0.4} />
+          <Grid xs={0.0} sm={0.2} />
           <Grid container item xs={11.8} sm={5.8}>
             <Grid
               container
               className="Next-Patient"
               alignItems="center"
               direction="column"
-              style={{
-                margin: "30px",
-              }}
             >
-              <Container
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  backgroundColor: "#4EC6C7",
-                  color: "white",
-                  height: "80px",
-                }}
-              >
-                <Typography
-                  style={{
-                    fontSize: "26px",
-                    fontWeight: "bold",
-                    textAlign: "left",
-                    padding: "30px",
-                  }}
-                >
-                  Bugünün Randevuları
-                </Typography>
-              </Container>
+              <HeaderContainer>
+                <Typography className="Header">Bugünün Randevuları</Typography>
+              </HeaderContainer>
               <Grid
                 container
                 item
