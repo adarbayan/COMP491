@@ -25,17 +25,11 @@ const App: React.FC = () => {
           justifyContent="space-between"
         >
           <div />
-          <div className="Login-Container">
-            <Grid container justifyContent="center">
-              <img
-                src="https://cdn.dribbble.com/users/3445877/screenshots/6353004/phsiotherapy_4x.jpg"
-                width={200}
-                alt="logo"
-              />
-            </Grid>
+          <div className="Login-Container" style={{ justifyContent: "center" }}>
+            <header className="Header">Hesabınıza Giriş Yapın</header>
             <TextField
               margin="normal"
-              label="Kullanıcı Adı / e-Mail"
+              label="Kullanıcı Adı / e-mail"
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -56,12 +50,31 @@ const App: React.FC = () => {
                 ),
               }}
             />
-            <div style={{ height: 20 }} />
-            <Button className="Button" color="primary" variant="contained">
+            <a
+              className="Forgot-Password"
+              href="https://google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Şifremi Unuttum
+            </a>
+            <div style={{ height: 40 }} />
+            <Button
+              className="Button"
+              style={{
+                borderRadius: 10,
+                backgroundColor: "#4EC6C7",
+                padding: "8px",
+                fontSize: "18px",
+                textTransform: "none",
+                minWidth: "250px",
+                maxWidth: "400px",
+                alignSelf: "center",
+              }}
+              variant="contained"
+            >
               Giriş Yap
             </Button>
-            <div style={{ height: 20 }} />
-            <Button>Şifremi Unuttum</Button>
           </div>
           <div />
         </Grid>

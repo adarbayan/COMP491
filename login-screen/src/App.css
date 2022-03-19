@@ -1,9 +1,10 @@
 .Login-Container {
   display: flex;
   flex-direction: column;
+
   max-width: 400px;
   min-width: 400px;
-  padding: 20px;
+  padding: 40px;
   background-color: white;
   box-shadow: 10px 10px 10px lightgray;
 }
@@ -15,8 +16,24 @@
   box-shadow: 10px 10px 10px lightgray;
 }
 
+.Header {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.Button {
+  background-color: #4ec6c7;
+}
+
 .App {
   text-align: center;
+}
+
+.Forgot-Password {
+  color: #9a9a9a;
+  font-size: "14px";
+  text-align: right;
 }
 
 .App-logo {
