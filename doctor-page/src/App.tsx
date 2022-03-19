@@ -1,4 +1,12 @@
 import * as React from "react";
+import {
+  Button,
+  Grid,
+  TextField,
+  InputAdornment,
+  Container,
+} from "@mui/material";
+import { AccountCircle, LockRounded } from "@mui/icons-material";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -11,10 +19,19 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import { Avatar } from "@mui/material";
+import "./App.css";
+
+import { ProgressBar } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { fontSize } from "@mui/system";
+
+import AvatarImage from "./patient1.jpg";
+
+const progress = 60;
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -163,96 +180,219 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar
-          style={{
-            backgroundColor: "#ffffff",
-            color: "#4EC6C7",
-            minHeight: "80px",
-            paddingLeft: "120px",
-            paddingRight: "120px",
-          }}
-        >
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="account of current user"
-            aria-controls={menuId}
-            aria-haspopup="true"
-            onClick={handleProfileMenuOpen}
+    <div>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar
+            style={{
+              backgroundColor: "#ffffff",
+              color: "#4EC6C7",
+              minHeight: "80px",
+              paddingLeft: "120px",
+              paddingRight: "120px",
+            }}
           >
-            <AccountCircle />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            Dr. Strange
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Hasta ara..."
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <StyledIconButton
-              aria-label="home page"
-              size="large"
-              color="inherit"
-            >
-              Ana Sayfa
-            </StyledIconButton>
-            <StyledIconButton size="large" color="inherit">
-              Randevular
-            </StyledIconButton>
-            <StyledIconButton size="large" color="inherit">
-              Hastalar
-            </StyledIconButton>
-            <StyledIconButton size="large">
-              <Typography
-                style={{
-                  backgroundColor: "#4EC6C7",
-                  color: "white",
-                  fontSize: "20px",
-                  padding: "8px 30px",
-                  borderRadius: "10px",
-                }}
-              >
-                Yeni Hasta
-              </Typography>
-            </StyledIconButton>
-          </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
+              edge="start"
               color="inherit"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
             >
-              <MoreIcon />
+              <AccountCircle />
             </IconButton>
-          </Box>
-        </Toolbar>
-        <Box
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ display: { xs: "none", sm: "block" } }}
+            >
+              Dr. Strange
+            </Typography>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Hasta ara..."
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
+            <Box sx={{ flexGrow: 1 }} />
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              <StyledIconButton
+                aria-label="home page"
+                size="large"
+                color="inherit"
+              >
+                Ana Sayfa
+              </StyledIconButton>
+              <StyledIconButton size="large" color="inherit">
+                Randevular
+              </StyledIconButton>
+              <StyledIconButton size="large" color="inherit">
+                Hastalar
+              </StyledIconButton>
+              <StyledIconButton size="large">
+                <Typography
+                  style={{
+                    backgroundColor: "#4EC6C7",
+                    color: "white",
+                    fontSize: "20px",
+                    padding: "8px 30px",
+                    borderRadius: "10px",
+                  }}
+                >
+                  Yeni Hasta
+                </Typography>
+              </StyledIconButton>
+            </Box>
+            <Box sx={{ display: { xs: "flex", md: "none" } }}>
+              <IconButton
+                size="large"
+                aria-label="show more"
+                aria-controls={mobileMenuId}
+                aria-haspopup="true"
+                onClick={handleMobileMenuOpen}
+                color="inherit"
+              >
+                <MoreIcon />
+              </IconButton>
+            </Box>
+          </Toolbar>
+          <Box
+            style={{
+              backgroundColor: "#4EC6C7",
+              minHeight: "10px",
+            }}
+          ></Box>
+        </AppBar>
+        {renderMobileMenu}
+        {renderMenu}
+      </Box>
+      <div style={{ padding: "50px 100px" }}>
+        <Grid
+          container
           style={{
-            backgroundColor: "#4EC6C7",
-            minHeight: "10px",
+            display: "flex",
+            height: "540px",
           }}
-        ></Box>
-      </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
-    </Box>
+        >
+          <Grid container item xs={11.8} sm={5.8}>
+            <Grid
+              container
+              className="Next-Patient"
+              alignItems="center"
+              direction="column"
+              style={{
+                margin: "30px",
+              }}
+            >
+              <Container
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  backgroundColor: "#4EC6C7",
+                  color: "white",
+                  height: "80px",
+                }}
+              >
+                <Typography
+                  style={{
+                    fontSize: "26px",
+                    fontWeight: "bold",
+                    textAlign: "left",
+                    padding: "30px",
+                  }}
+                >
+                  Sıradaki Hasta
+                </Typography>
+              </Container>
+              <Grid container direction="row" height="300px">
+                <Grid
+                  container
+                  item
+                  sm={8}
+                  direction="column"
+                  style={{
+                    padding: "40px",
+                  }}
+                >
+                  <Typography className="Text">08:30 - 1 Nisan 2022</Typography>
+                  <Typography className="Text">Donuk Omuz Tedavisi</Typography>
+                  <Typography className="Text">Seans 3/12</Typography>
+                  <Typography className="Text">Toplam İyileşme</Typography>
+
+                  <ProgressBar
+                    className="progress"
+                    now={progress}
+                    label={`${progress}%`}
+                    variant="progress-bg"
+                  />
+                </Grid>
+                <Grid
+                  container
+                  item
+                  sm={4}
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      margin: "30px 30px 20px 30px",
+                    }}
+                  >
+                    <Avatar
+                      alt="Hasta 1"
+                      src={AvatarImage}
+                      sx={{ width: 192, height: 192 }}
+                    />
+                  </div>
+                  <div style={{ marginBottom: "30px" }}>
+                    <Typography className="Patient-Name">Hasta 1</Typography>
+                  </div>
+                </Grid>
+              </Grid>
+              <Button
+                className="Button"
+                style={{
+                  borderRadius: 10,
+                  backgroundColor: "#4EC6C7",
+                  padding: "8px",
+                  fontSize: "18px",
+                  textTransform: "none",
+                  minWidth: "250px",
+                  maxWidth: "400px",
+                  alignSelf: "center",
+                  margin: "40px",
+                }}
+                variant="contained"
+              >
+                Seansı Başlat
+              </Button>
+            </Grid>
+          </Grid>
+          <Grid xs={0.0} sm={0.4} style={{ backgroundColor: "black" }} />
+          <Grid
+            container
+            item
+            xs={11.8}
+            sm={5.8}
+            alignItems="center"
+            direction="column"
+            justifyContent="space-between"
+            style={{
+              backgroundColor: "yellow",
+            }}
+          ></Grid>
+        </Grid>
+      </div>
+    </div>
   );
 }
