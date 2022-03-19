@@ -30,6 +30,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { fontSize } from "@mui/system";
 
 import AvatarImage from "./patient1.jpg";
+import PatientHolder from "./PatientHolder";
 
 const progress = 60;
 
@@ -79,67 +80,6 @@ const StyledIconButton = styled(IconButton)((theme) => ({
   padding: "30px",
   "&:hover": { backgroundColor: "transparent" },
 }));
-
-interface PatientHolderProps {
-  patientName: string;
-  hour: string;
-  width?: string;
-  height?: string;
-  color?: string;
-  fontSize?: string;
-}
-
-const PatientHolder: React.FC<PatientHolderProps> = (props) => {
-  return (
-    <div
-      style={{ display: "flex", flexDirection: "row", marginBottom: "10px" }}
-    >
-      <Box
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          backgroundColor: props.color,
-          height: props.height,
-          width: "100px",
-        }}
-      >
-        <Typography className="Hour">{props.hour}</Typography>
-      </Box>
-      <Box
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          border: "4px solid #4EC6C7",
-          borderColor: props.color,
-          height: props.height,
-          width: props.width,
-        }}
-      >
-        <Typography
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            textAlign: "left",
-            paddingLeft: "20px",
-            fontSize: props.fontSize,
-            fontWeight: "550",
-          }}
-        >
-          {props.patientName}
-        </Typography>
-      </Box>
-    </div>
-  );
-};
-
-PatientHolder.defaultProps = {
-  width: "500px",
-  height: "40px",
-  color: "#4EC6C7",
-  fontSize: "20px",
-};
 
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -488,6 +428,16 @@ export default function PrimarySearchAppBar() {
                   patientName="Alp Tekirdağ"
                   hour="09:30"
                   width="600px"
+                ></PatientHolder>
+                <PatientHolder
+                  patientName="Alper Kılınç"
+                  hour="10:30"
+                  height="60px"
+                ></PatientHolder>
+                <PatientHolder
+                  patientName="Oğuzhan Taş"
+                  hour="11:30"
+                  color="black"
                 ></PatientHolder>
               </Grid>
             </Grid>
