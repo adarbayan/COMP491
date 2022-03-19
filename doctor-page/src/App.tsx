@@ -379,7 +379,7 @@ export default function PrimarySearchAppBar() {
               </Button>
             </Grid>
           </Grid>
-          <Grid xs={0.0} sm={0.4} style={{ backgroundColor: "black" }} />
+          <Grid xs={0.0} sm={0.4} />
           <Grid container item xs={11.8} sm={5.8}>
             <Grid
               container
@@ -415,7 +415,7 @@ export default function PrimarySearchAppBar() {
                 container
                 item
                 direction="column"
-                height="300px"
+                height="550px"
                 style={{
                   padding: "40px",
                 }}
@@ -427,17 +427,34 @@ export default function PrimarySearchAppBar() {
                 <PatientHolder
                   patientName="Alp Tekirdağ"
                   hour="09:30"
-                  width="600px"
                 ></PatientHolder>
                 <PatientHolder
                   patientName="Alper Kılınç"
                   hour="10:30"
-                  height="60px"
                 ></PatientHolder>
                 <PatientHolder
                   patientName="Oğuzhan Taş"
                   hour="11:30"
-                  color="black"
+                ></PatientHolder>
+                <PatientHolder
+                  patientName="Öğle Arası"
+                  hour="12:30"
+                ></PatientHolder>
+                <PatientHolder
+                  patientName="Hasta 5"
+                  hour="13:30"
+                ></PatientHolder>
+                <PatientHolder
+                  patientName="Hasta 6"
+                  hour="14:30"
+                ></PatientHolder>
+                <PatientHolder
+                  patientName="Hasta 7"
+                  hour="15:30"
+                ></PatientHolder>
+                <PatientHolder
+                  patientName="Hasta 8"
+                  hour="16:30"
                 ></PatientHolder>
               </Grid>
             </Grid>
