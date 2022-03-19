@@ -23,19 +23,30 @@
   background-color: #4ec6c7;
 }
 
-.Login-Image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  box-shadow: 10px 10px 10px lightgray;
-}
-
 .Next-Patient {
   box-shadow: 10px 10px 10px lightgray;
 }
 
 .Text {
   padding: 8px 16px;
+  font-size: 20px !important;
+  font-weight: 550 !important;
+}
+
+.Hour {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  font-size: 20px !important;
+  font-weight: 550 !important;
+}
+
+.Patient {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-left: 20px;
   font-size: 20px !important;
   font-weight: 550 !important;
 }

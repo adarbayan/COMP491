@@ -80,6 +80,67 @@ const StyledIconButton = styled(IconButton)((theme) => ({
   "&:hover": { backgroundColor: "transparent" },
 }));
 
+interface PatientHolderProps {
+  patientName: string;
+  hour: string;
+  width?: string;
+  height?: string;
+  color?: string;
+  fontSize?: string;
+}
+
+const PatientHolder: React.FC<PatientHolderProps> = (props) => {
+  return (
+    <div
+      style={{ display: "flex", flexDirection: "row", marginBottom: "10px" }}
+    >
+      <Box
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          backgroundColor: props.color,
+          height: props.height,
+          width: "100px",
+        }}
+      >
+        <Typography className="Hour">{props.hour}</Typography>
+      </Box>
+      <Box
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          border: "4px solid #4EC6C7",
+          borderColor: props.color,
+          height: props.height,
+          width: props.width,
+        }}
+      >
+        <Typography
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            textAlign: "left",
+            paddingLeft: "20px",
+            fontSize: props.fontSize,
+            fontWeight: "550",
+          }}
+        >
+          {props.patientName}
+        </Typography>
+      </Box>
+    </div>
+  );
+};
+
+PatientHolder.defaultProps = {
+  width: "500px",
+  height: "40px",
+  color: "#4EC6C7",
+  fontSize: "20px",
+};
+
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
@@ -379,18 +440,58 @@ export default function PrimarySearchAppBar() {
             </Grid>
           </Grid>
           <Grid xs={0.0} sm={0.4} style={{ backgroundColor: "black" }} />
-          <Grid
-            container
-            item
-            xs={11.8}
-            sm={5.8}
-            alignItems="center"
-            direction="column"
-            justifyContent="space-between"
-            style={{
-              backgroundColor: "yellow",
-            }}
-          ></Grid>
+          <Grid container item xs={11.8} sm={5.8}>
+            <Grid
+              container
+              className="Next-Patient"
+              alignItems="center"
+              direction="column"
+              style={{
+                margin: "30px",
+              }}
+            >
+              <Container
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  backgroundColor: "#4EC6C7",
+                  color: "white",
+                  height: "80px",
+                }}
+              >
+                <Typography
+                  style={{
+                    fontSize: "26px",
+                    fontWeight: "bold",
+                    textAlign: "left",
+                    padding: "30px",
+                  }}
+                >
+                  Bugünün Randevuları
+                </Typography>
+              </Container>
+              <Grid
+                container
+                item
+                direction="column"
+                height="300px"
+                style={{
+                  padding: "40px",
+                }}
+              >
+                <PatientHolder
+                  patientName="Adar Bayan"
+                  hour="08:30"
+                ></PatientHolder>
+                <PatientHolder
+                  patientName="Alp Tekirdağ"
+                  hour="09:30"
+                  width="600px"
+                ></PatientHolder>
+              </Grid>
+            </Grid>
+          </Grid>
         </Grid>
       </div>
     </div>
