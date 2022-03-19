@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
@@ -12,46 +13,65 @@ interface PatientHolderProps {
 }
 
 const PatientHolder: React.FC<PatientHolderProps> = (props) => {
+  const onClick = () => (window.location.href = "http://github.com");
+
   return (
-    <div
-      style={{ display: "flex", flexDirection: "row", marginBottom: "10px" }}
-    >
-      <Box
+    <div onClick={onClick}>
+      <button
         style={{
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          backgroundColor: props.color,
-          height: props.height,
-          width: "100px",
+          flexDirection: "row",
+          marginBottom: "10px",
+          border: "0px solid",
+          backgroundColor: "transparent",
         }}
       >
-        <Typography className="Hour">{props.hour}</Typography>
-      </Box>
-      <Box
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          border: "4px solid #4EC6C7",
-          borderColor: props.color,
-          height: props.height,
-          width: props.width,
-        }}
-      >
-        <Typography
+        <Box
           style={{
             display: "flex",
             flexDirection: "column",
-            textAlign: "left",
-            paddingLeft: "20px",
-            fontSize: props.fontSize,
-            fontWeight: "550",
+            justifyContent: "center",
+            backgroundColor: props.color,
+            height: props.height,
+            width: "120px",
           }}
         >
-          {props.patientName}
-        </Typography>
-      </Box>
+          <Typography
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              textAlign: "center",
+              color: "white",
+              fontSize: props.fontSize,
+            }}
+          >
+            {props.hour}
+          </Typography>
+        </Box>
+        <Box
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            border: "4px solid #4EC6C7",
+            borderColor: props.color,
+            height: props.height,
+            width: props.width,
+          }}
+        >
+          <Typography
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              textAlign: "left",
+              paddingLeft: "20px",
+              fontSize: props.fontSize,
+            }}
+          >
+            {props.patientName}
+          </Typography>
+        </Box>
+      </button>
     </div>
   );
 };
