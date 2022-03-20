@@ -31,6 +31,7 @@ import { fontSize } from "@mui/system";
 
 import AvatarImage from "./patient1.jpg";
 import PatientHolder from "./PatientHolder";
+import TodaysAppointments from "./TodaysAppointments";
 
 const progress = 60;
 
@@ -354,62 +355,16 @@ export default function PrimarySearchAppBar() {
           </Grid>
           <Grid xs={0.0} sm={0.2} />
           <Grid container item xs={11.8} sm={5.8}>
-            <Grid
-              container
-              className="Next-Patient"
-              alignItems="center"
-              direction="column"
-            >
-              <HeaderContainer>
-                <Typography className="Header">Bugünün Randevuları</Typography>
-              </HeaderContainer>
-              <Grid
-                container
-                item
-                direction="column"
-                height="550px"
-                style={{
-                  padding: "40px",
-                }}
-              >
-                <PatientHolder
-                  patientName="Adar Bayan"
-                  hour="08:30"
-                ></PatientHolder>
-                <PatientHolder
-                  patientName="Alp Tekirdağ"
-                  hour="09:30"
-                ></PatientHolder>
-                <PatientHolder
-                  patientName="Alper Kılınç"
-                  hour="10:30"
-                ></PatientHolder>
-                <PatientHolder
-                  patientName="Oğuzhan Taş"
-                  hour="11:30"
-                ></PatientHolder>
-                <PatientHolder
-                  patientName="Öğle Arası"
-                  hour="12:30"
-                ></PatientHolder>
-                <PatientHolder
-                  patientName="Hasta 5"
-                  hour="13:30"
-                ></PatientHolder>
-                <PatientHolder
-                  patientName="Hasta 6"
-                  hour="14:30"
-                ></PatientHolder>
-                <PatientHolder
-                  patientName="Hasta 7"
-                  hour="15:30"
-                ></PatientHolder>
-                <PatientHolder
-                  patientName="Hasta 8"
-                  hour="16:30"
-                ></PatientHolder>
-              </Grid>
-            </Grid>
+            <TodaysAppointments
+              patientName1="Adar Bayan"
+              patientName2="Alp Tekirdağ"
+              patientName3="Alper Kılınç"
+              patientName4="Oğuzhan Taş"
+              patientName5="Hasta 5"
+              patientName6="Hasta 6"
+              patientName7="Hasta 7"
+              patientName8="Hasta 8"
+            ></TodaysAppointments>
           </Grid>
         </Grid>
       </div>

@@ -51,6 +51,10 @@
   box-shadow: 10px 10px 10px lightgray;
 }
 
+.box-shadow {
+  box-shadow: 10px 10px 10px lightgray;
+}
+
 .Text {
   padding: 8px 16px;
   font-size: 20px !important;
