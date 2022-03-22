@@ -25,17 +25,15 @@ public class Doctor implements UserDetails {
     private String password;
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
-    private Boolean locked;
-    private Boolean enabled;
+    private Boolean locked=false;
+    private Boolean enabled=false;
 
-    public Doctor(String f_name, String l_name, String email, String password, AppUserRole appUserRole, Boolean locked, Boolean enabled) {
+    public Doctor(String f_name, String l_name, String email, String password, AppUserRole appUserRole) {
         this.f_name = f_name;
         this.l_name = l_name;
         this.email = email;
         this.password = password;
         this.appUserRole = appUserRole;
-        this.locked = locked;
-        this.enabled = enabled;
     }
 
     public long getDr_id() {
@@ -81,9 +79,13 @@ public class Doctor implements UserDetails {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password=password;
+    }
+
     @Override
     public String getUsername() {
-        return f_name+" "+l_name;
+        return email;
     }
 
     @Override
