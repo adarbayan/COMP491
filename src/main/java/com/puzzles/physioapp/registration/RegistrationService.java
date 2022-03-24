@@ -1,6 +1,5 @@
 package com.puzzles.physioapp.registration;
 
-import com.puzzles.physioapp.appuser.AppUser;
 import com.puzzles.physioapp.appuser.AppUserRole;
 import com.puzzles.physioapp.appuser.AppUserService;
 import com.puzzles.physioapp.model.entity.Doctor;
@@ -16,6 +15,7 @@ public class RegistrationService {
 
     public String register(RegistrationRequest request) {
         boolean isValidEmail = emailValidator.test(request.getEmail());
+        System.err.println(request.getFirstName());
         if(!isValidEmail){
             throw new IllegalStateException("Not valid email!");
         }

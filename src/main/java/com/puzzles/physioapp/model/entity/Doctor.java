@@ -1,6 +1,10 @@
 package com.puzzles.physioapp.model.entity;
 
 import com.puzzles.physioapp.appuser.AppUserRole;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,31 +13,35 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
 
+@Getter
+@Setter
+@EqualsAndHashCode
 @Entity
+@NoArgsConstructor
+@Table(name = "doctor")
 public class Doctor implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "dr_id")
     private long dr_id;
-    @Column(name = "dr_first_name")
-    private String f_name;
-    @Column(name = "dr_last_name")
-    private String l_name;
-    @Column(name = "dr_email")
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
-    private AppUserRole appUserRole;
+    private AppUserRole appUserRole=AppUserRole.USER;
     private Boolean locked=false;
-    private Boolean enabled=false;
+    private Boolean enabled=true;
 
     public Doctor(String f_name, String l_name, String email, String password, AppUserRole appUserRole) {
-        this.f_name = f_name;
-        this.l_name = l_name;
+        this.firstName = f_name;
+        this.lastName = l_name;
         this.email = email;
         this.password = password;
         this.appUserRole = appUserRole;
+        locked=false;
+        enabled=true;
     }
 
     public long getDr_id() {
@@ -44,20 +52,20 @@ public class Doctor implements UserDetails {
         this.dr_id = dr_id;
     }
 
-    public String getF_name() {
-        return f_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setF_name(String f_name) {
-        this.f_name = f_name;
+    public void setFirstName(String f_name) {
+        this.firstName = f_name;
     }
 
-    public String getL_name() {
-        return l_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setL_name(String l_name) {
-        this.l_name = l_name;
+    public void setLastName(String l_name) {
+        this.lastName = l_name;
     }
 
     public String getEmail() {
@@ -80,7 +88,7 @@ public class Doctor implements UserDetails {
     }
 
     public void setPassword(String password) {
-        this.password=password;
+        this.password = password;
     }
 
     @Override
@@ -106,5 +114,19 @@ public class Doctor implements UserDetails {
     @Override
     public boolean isEnabled() {
         return enabled;
+    }
+
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "dr_id=" + dr_id +
+                ", dr_first_name='" + firstName + '\'' +
+                ", dr_last_name='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", appUserRole=" + appUserRole +
+                ", locked=" + locked +
+                ", enabled=" + enabled +
+                '}';
     }
 }
