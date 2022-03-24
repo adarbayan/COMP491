@@ -50,7 +50,14 @@ public class AppUserService implements UserDetailsService {
                 doctor
         );
 
-
-        return "working";
+        confirmationTokenService.saveConfirmationToken(confirmationToken);
+        return token;
     }
+
+    /*
+    public int enableAppUser(String email) {
+        return appUserRepository.enableAppUser(email);
+    }
+
+     */
 }

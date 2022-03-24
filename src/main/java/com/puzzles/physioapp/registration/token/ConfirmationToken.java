@@ -40,7 +40,7 @@ public class ConfirmationToken {
     @ManyToOne
     @JoinColumn(
             nullable = false,
-            name = "app_user_id"
+            name = "dr_id"
     )
     private Doctor doctor;
 
@@ -52,5 +52,9 @@ public class ConfirmationToken {
         this.createdAt = createdAt;
         this.expiresAt = expiresAt;
         this.doctor = doctor;
+    }
+
+    public Doctor getAppUser() {
+        return doctor;
     }
 }
