@@ -1,7 +1,7 @@
 package com.puzzles.physioapp.service;
 
 import com.puzzles.physioapp.model.entity.Doctor;
-import com.puzzles.physioapp.repository.DenemeRepository;
+import com.puzzles.physioapp.repository.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,15 +12,15 @@ import java.util.Optional;
 @Service
 public class DenemeServiceImplement implements DenemeService{
     @Autowired
-    DenemeRepository denemeRepository;
+    DoctorRepository doctorRepository;
     @Override
     public List<Doctor> getDenemes() {
-        return new ArrayList<>(denemeRepository.findAll());
+        return new ArrayList<>(doctorRepository.findAll());
     }
 
     @Override
     public Doctor getDeneme(long id) {
-        Optional<Doctor> product = denemeRepository.findById(id);
+        Optional<Doctor> product = doctorRepository.findById(id);
         return product.orElse(null);
     }
 }
