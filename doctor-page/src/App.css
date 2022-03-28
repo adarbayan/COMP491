@@ -1,0 +1,83 @@
+.Toolbar {
+  background-color: white;
+  color: #4ec6c7;
+  min-height: 100px;
+}
+
+.Menu-Item {
+  font-size: 20px;
+}
+
+.Login-Container {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 400px;
+  min-width: 400px;
+  padding: 40px;
+  background-color: white;
+  box-shadow: 10px 10px 10px lightgray;
+}
+
+.header-continaer {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  background-color: #4ec6c7 !important;
+  height: 60px !important;
+  width: 100%;
+}
+
+.Header {
+  font-size: 26px !important;
+  font-weight: bold !important;
+  text-align: left;
+  padding: 20px;
+  color: white;
+}
+
+.Button {
+  background-color: #4ec6c7 !important;
+  font-size: 18px !important;
+  margin: 40px !important;
+  padding: 8px;
+  border-radius: 10px !important;
+  text-transform: none !important;
+  min-width: 250px !important;
+  max-width: 400px;
+}
+
+.Next-Patient {
+  box-shadow: 10px 10px 10px lightgray;
+}
+
+.box-shadow {
+  box-shadow: 10px 10px 10px lightgray;
+}
+
+.Text {
+  padding: 8px 16px;
+  font-size: 20px !important;
+  font-weight: 550 !important;
+}
+
+.Patient-Name {
+  font-size: 22px !important;
+  text-align: center;
+}
+
+.progress {
+  display: flex;
+  overflow: hidden;
+  height: 40px !important;
+  width: 400px;
+  border-radius: 0.25rem;
+  margin-left: 16px;
+  font-size: 20px !important;
+  background-color: #e9ecef;
+  color: #4ec6c7 !important;
+}
+
+.bg-progress-bg {
+  background-color: #4ec6c7 !important;
+}
